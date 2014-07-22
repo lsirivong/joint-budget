@@ -10,5 +10,10 @@
   <%= @line_item.amount %>
 </p>
 
+<p>
+  <strong>Member:</strong>
+  <%= @line_item.member.name %>
+</p>
+
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
 <%= link_to 'Back', line_items_path %>
