@@ -1,4 +1,6 @@
 JointBudget::Application.routes.draw do
+  resources :budgets
+
   resources :members
 
   resources :line_items
