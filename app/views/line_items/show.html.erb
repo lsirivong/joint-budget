@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Member:</strong>
-  <%= @line_item.member.name %>
+  <strong>Purchaser:</strong>
+  <%= get_purchaser_name(@line_item) %>
 </p>
 
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |

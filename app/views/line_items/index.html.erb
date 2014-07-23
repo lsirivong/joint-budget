@@ -5,6 +5,7 @@
     <tr>
       <th>Description</th>
       <th>Amount</th>
+      <th>Purchaser</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= line_item.description %></td>
         <td><%= line_item.amount %></td>
+        <td><%= get_purchaser_name(line_item) %></td>
         <td><%= link_to 'Show', line_item %></td>
         <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
         <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

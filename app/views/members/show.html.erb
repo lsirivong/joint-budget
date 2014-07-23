@@ -5,5 +5,14 @@
   <%= @member.name %>
 </p>
 
+<p>
+  <strong>Line Items:</strong>
+  <ul>
+    <% @member.line_items.each do |line_item| %>
+    <li><%= line_item.description %>: <%= line_item.amount %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
