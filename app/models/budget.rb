@@ -20,4 +20,14 @@ class Budget < ActiveRecord::Base
 
 		total
 	end
+
+	def deficit_by(member)
+		t = total
+
+		# divide evenly for now
+		num_members = members.count
+		percent = 1.0 / num_members
+
+		(t * percent) - total_by(member)
+	end
 end

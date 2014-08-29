@@ -18,6 +18,7 @@
 		<tr>
 			<td><%= member.name %></td>
 			<td><%= number_to_currency @budget.total_by(member) %></td>
+			<td><%= number_to_currency @budget.deficit_by(member) %></td>
 		</tr>
 	<% end %>
 	</table>
