@@ -11,12 +11,15 @@
 <nav>
 	<ul>
 		<%= nav_item('Home', { controller: 'home', action: 'index'}) %>
+		<%= nav_item('Line Items', { controller: 'line_items', action: 'index'}) %>
 		<%= nav_item('Budgets', { controller: 'budgets', action: 'index'}) %>
 		<%= nav_item('Members', { controller: 'members', action: 'index'}) %>
 	</ul>
 </nav>
 
-<%= yield %>
+<div class="main-container">
+	<%= yield %>
+</div>
 
 </body>
 </html>

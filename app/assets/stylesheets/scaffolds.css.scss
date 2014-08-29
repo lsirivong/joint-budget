@@ -1,17 +1,31 @@
+html, body {
+    min-height: 100%;
+}
+html {
+    background: #FF644F;
+    padding: 0 1em;
+}
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: 'Helvetica Neue', helvetica, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 53em;
+  margin: auto;
+  padding: 0;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+.main-container {
+  padding: 1em;
 }
-
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #aaa;
+    padding: 2px 5px;
+}
 pre {
   background-color: #eee;
   padding: 10px;

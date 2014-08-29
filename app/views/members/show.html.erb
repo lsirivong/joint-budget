@@ -6,6 +6,15 @@
 </p>
 
 <p>
+  <strong>Budgets:</strong>
+  <ul>
+  <% @member.budgets.each do |budget| %>
+    <li><%= budget.name %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>Line Items:</strong>
   <ul>
     <% @member.line_items.each do |line_item| %>
