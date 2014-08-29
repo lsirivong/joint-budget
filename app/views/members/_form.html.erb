@@ -31,11 +31,6 @@
     <%= f.password_field :password_confirmation %>
   </div>
 
-  <div class="field">
-    <%= f.label :budgets %><br>
-    <%= f.collection_check_boxes :budget_ids, Budget.all, :id, :name %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

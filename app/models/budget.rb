@@ -1,6 +1,7 @@
 class Budget < ActiveRecord::Base
 	has_many :line_items
 	has_many :memberships
+	accepts_nested_attributes_for :memberships
 	has_many :members, through: :memberships
 
 	def total

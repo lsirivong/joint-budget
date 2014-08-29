@@ -84,7 +84,7 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :email, :password, :password_confirmation, budget_ids: [])
+      params.require(:member).permit(:name, :email, :password, :password_confirmation)
     end
 
     def handle_not_authorized
