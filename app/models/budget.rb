@@ -1,6 +1,7 @@
 class Budget < ActiveRecord::Base
 	has_many :line_items
-	has_and_belongs_to_many :members
+	has_many :memberships
+	has_many :members, through: :memberships
 
 	def total
 		total = 0
@@ -25,8 +26,12 @@ class Budget < ActiveRecord::Base
 		t = total
 
 		# divide evenly for now
-		num_members = members.count
-		percent = 1.0 / num_members
+		# num_members = members.count
+		# percent = 1.0 / num_members
+
+		# binding.pry
+		membership = Membership.where(:member_id => member.id, :budget_id => id).take
+		percent = membership.allocation
 
 		(t * percent) - total_by(member)
 	end
