@@ -46,3 +46,6 @@ end
 
 # Use Pry for debugging
 gem 'pry'
+
+# Use Devise for user authentication
+gem 'devise'

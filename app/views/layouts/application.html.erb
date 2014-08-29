@@ -9,16 +9,30 @@
 <body>
 
 <nav>
-	<ul>
-		<%= nav_item('Home', { controller: 'home', action: 'index'}) %>
-		<%= nav_item('Line Items', { controller: 'line_items', action: 'index'}) %>
-		<%= nav_item('Budgets', { controller: 'budgets', action: 'index'}) %>
-		<%= nav_item('Members', { controller: 'members', action: 'index'}) %>
-		<%= nav_item('Memberships', { controller: 'memberships', action: 'index'}) %>
+	<ul class="nav-menu">
+		<%= nav_item('Joint Budget', { controller: '/home', action: 'index'}) %>
+
+		<% if member_signed_in? %>
+			<%= nav_item('Line Items', { controller: '/line_items', action: 'index'}) %>
+			<%= nav_item('Budgets', { controller: '/budgets', action: 'index'}) %>
+			<%= nav_item('Members', { controller: '/members', action: 'index'}) %>
+			<%= nav_item('Memberships', { controller: '/memberships', action: 'index'}) %>
+		<% end %>
 	</ul>
+
+	<aside>
+		<% if member_signed_in? %>
+			<%= current_member.name or '(no name)' %> <%= link_to '(sign out)', destroy_member_session_path, class: 'sign-out-link' %>
+		<% else %>
+			<%= link_to 'Log In', new_member_session_path %>
+		<% end %>
+	</aside>
 </nav>
 
 <div class="main-container">
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
 	<%= yield %>
 </div>
 
