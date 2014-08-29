@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :member %><br>
-    <%= f.select :member_id, get_member_select_options %>
+    <%= f.select :member_id, options_for_select(get_member_select_options, [ current_member.id ]) %>
   </div>
   <div class="field">
     <%= f.label :budget %><br>

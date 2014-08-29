@@ -1,16 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-	<strong>Name:</strong>
-	<%= @budget.name %>
-</p>
+<h1><%= @budget.name %></h1>
 
-<p>
+<section>
 	<strong>Total:</strong>
 	<%= number_to_currency @budget.total %>
-</p>
+</section>
 
-<p>
+<section>
 	<strong>Members:</strong>
 	<table>
 		
@@ -33,10 +30,10 @@
 		<% end %>
 		</tbody>
 	</table>
-</p>
+</section>
 
-<p>
-	<strong>Line Items:</strong>
+<section>
+	<strong>Purchases:</strong>
 	<% if @budget.line_items.any? %>
 	<table>
 		<tbody>
@@ -50,7 +47,11 @@
 		</tbody>
 	</table>
 	<% end %>
-</p>
+
+	<p>
+		<%= link_to '+ Add Purchase', new_line_item_path %>
+	</p>
+</section>
 
 <%= link_to 'Edit', edit_budget_path(@budget) %> |
 <%= link_to 'Back', budgets_path %>

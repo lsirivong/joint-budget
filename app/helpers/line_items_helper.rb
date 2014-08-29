@@ -1,14 +1,12 @@
 module LineItemsHelper
-	def get_member_select_options
+	def get_member_select_options(selected = nil)
 		members = Member.all
-		@member_options = members.map { |m| [m.name, m.id] }
-		[['Select...', nil]].concat @member_options
+		members.map { |m| [m.name, m.id] }
 	end
 
 	def get_budget_select_options
 		budgets = Budget.all
-		@budget_options = budgets.map { |m| [m.name, m.id] }
-		[['Select...', nil]].concat @budget_options
+		budgets.map { |m| [m.name, m.id] }
 	end
 
 	def get_purchaser_name(line_item)
