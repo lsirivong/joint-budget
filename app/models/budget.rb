@@ -21,7 +21,7 @@ class Budget < ActiveRecord::Base
 		total
 	end
 
-	def deficit_by(member)
+	def balance_by(member)
 		t = total
 
 		# divide evenly for now
