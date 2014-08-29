@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_member!
+  before_action :authenticate_admin, only: [:index, :create, :destroy]
+  before_action :authenticate_self, only: [:show, :edit, :update]
 
   # GET /members
   # GET /members.json
@@ -62,6 +64,18 @@ class MembersController < ApplicationController
     end
   end
 
+  def authenticate_admin
+    unless current_member.admin
+      handle_not_authorized
+    end
+  end
+
+  def authenticate_self
+    unless current_member.id == @member.id or current_member.admin
+      handle_not_authorized
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
@@ -70,6 +84,11 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, budget_ids: [])
+      params.require(:member).permit(:name, :email, :password, :password_confirmation, budget_ids: [])
+    end
+
+    def handle_not_authorized
+      # TODO: make a "Not Authorized" landing page
+      redirect_to root_path, notice: 'Sorry, you don\'t have access to view that page.'
     end
 end

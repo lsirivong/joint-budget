@@ -15,14 +15,16 @@
 		<% if member_signed_in? %>
 			<%= nav_item('Line Items', { controller: '/line_items', action: 'index'}) %>
 			<%= nav_item('Budgets', { controller: '/budgets', action: 'index'}) %>
-			<%= nav_item('Members', { controller: '/members', action: 'index'}) %>
 			<%= nav_item('Memberships', { controller: '/memberships', action: 'index'}) %>
+			<% if current_member.admin? %>
+				<%= nav_item('Members', { controller: '/members', action: 'index'}) %>
+			<% end %>
 		<% end %>
 	</ul>
 
 	<aside>
 		<% if member_signed_in? %>
-			<%= current_member.name or '(no name)' %> <%= link_to '(sign out)', destroy_member_session_path, class: 'sign-out-link' %>
+			<%= link_to( (current_member.name or '(no name)'), member_path(current_member) ) %> <%= link_to '(sign out)', destroy_member_session_path, class: 'sign-out-link' %>
 		<% else %>
 			<%= link_to 'Log In', new_member_session_path %>
 		<% end %>

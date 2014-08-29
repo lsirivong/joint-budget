@@ -17,6 +17,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
     <%= f.label :budgets %><br>
     <%= f.collection_check_boxes :budget_ids, Budget.all, :id, :name %>
   </div>
