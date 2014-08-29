@@ -23,6 +23,10 @@
     <%= f.label :member %><br>
     <%= f.select :member_id, get_member_select_options %>
   </div>
+  <div class="field">
+    <%= f.label :budget %><br>
+    <%= f.select :budget_id, get_budget_select_options %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

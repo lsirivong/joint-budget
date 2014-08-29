@@ -1,8 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @budget.name %>
+	<strong>Name:</strong>
+	<%= @budget.name %>
+</p>
+
+<p>
+	<strong>Total:</strong>
+	<%= number_to_currency @budget.total %>
+</p>
+
+<p>
+	<strong>Members:</strong>
+	<table>
+		
+	<% @budget.members.each do |member| %>
+		<tr>
+			<td><%= member.name %></td>
+			<td><%= number_to_currency @budget.total_by(member) %></td>
+		</tr>
+	<% end %>
+	</table>
+</p>
+
+<p>
+	<strong>Line Items:</strong>
+	<% if @budget.line_items.any? %>
+	<table>
+		<tbody>
+		<% @budget.line_items.each do |line_item| %>
+			<tr>
+				<td><%= link_to line_item.description, line_item %></td>
+				<td><%= line_item.purchaser_name %></td>
+				<td><%= number_to_currency line_item.amount %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_budget_path(@budget) %> |
