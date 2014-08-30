@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140830135512) do
   create_table "memberships", force: true do |t|
     t.integer "member_id",                                          null: false
     t.integer "budget_id",                                          null: false
-    t.decimal "allocation", precision: 10, scale: 10, default: 0.0, null: false
+    t.decimal "allocation", precision: 12, scale: 11, default: 0.0, null: false
   end
 
   add_index "memberships", ["budget_id"], name: "index_memberships_on_budget_id"
