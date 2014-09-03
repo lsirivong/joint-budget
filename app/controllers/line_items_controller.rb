@@ -26,12 +26,11 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @line_item = LineItem.new(line_item_params)
-
-
+    destination = @line_item.budget.nil? ? @line_item : @line_item.budget
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+        format.html { redirect_to destination, notice: 'Line item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
@@ -44,8 +43,9 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
+      destination = @line_item.budget.nil? ? @line_item : @line_item.budget
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to destination, notice: 'Line item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
