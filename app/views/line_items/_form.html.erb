@@ -20,6 +20,10 @@
     <%= f.text_field :amount %>
   </div>
   <div class="field">
+    <%= f.label :purchased_at %><br>
+    <%= f.date_select :purchased_at %>
+  </div>
+  <div class="field">
     <%= f.label :member %><br>
     <%= f.select :member_id, options_for_select(get_member_select_options, [ current_member.id ]) %>
   </div>

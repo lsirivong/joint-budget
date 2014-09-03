@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Date</th>
       <th>Description</th>
       <th>Amount</th>
       <th>Purchaser</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr>
+        <td><%= line_item.purchased_at.strftime('%D') %></td>
         <td><%= line_item.description %></td>
         <td><%= line_item.amount %></td>
         <td><%= get_purchaser_name(line_item) %></td>
