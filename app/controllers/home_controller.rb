@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 			redirect_to new_member_session_path
 		end
 
-		@budget = current_member.budgets.order('created_at DESC').first
+		@budget = current_member.latest_budget
+		@line_item = LineItem.new;
 	end
 end

@@ -26,7 +26,10 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @line_item = LineItem.new(line_item_params)
-    destination = @line_item.budget.nil? ? @line_item : @line_item.budget
+
+    @line_item.budget = current_member.latest_budget
+
+    destination = root_path
 
     respond_to do |format|
       if @line_item.save

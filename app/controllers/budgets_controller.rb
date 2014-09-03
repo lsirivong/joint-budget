@@ -11,6 +11,7 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
+    @line_item = LineItem.new
   end
 
   # GET /budgets/new

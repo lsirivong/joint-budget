@@ -1,0 +1,16 @@
+.inline-form {
+	overflow: hidden;
+
+	.field {
+		float: left;
+	}
+
+	.amount-field {
+		width: 6em;
+	}
+
+	.actions {
+		clear: both;
+		float: right;
+	}
+}

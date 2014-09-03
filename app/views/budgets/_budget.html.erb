@@ -1,10 +1,10 @@
 <section>
-	<strong>Total Spent:</strong>
+	<h2>Total Spent:</h2>
 	<%= number_to_currency @budget.total %>
 </section>
 
 <section>
-	<strong>Members:</strong>
+	<h2>Members:</h2>
 	<table>
 		<thead>
 			<tr>
@@ -28,7 +28,13 @@
 </section>
 
 <section>
-	<strong>Purchases:</strong>
+	<h2>Purchases:</h2>
+
+	<p>
+		<strong>Add A Purchase</strong>
+		<%= render partial: 'line_items/inline_form', object: @line_item %>
+	</p>
+
 	<% if @budget.line_items.any? %>
 	<table>
 		<tbody>
@@ -43,8 +49,4 @@
 		</tbody>
 	</table>
 	<% end %>
-
-	<p>
-		<%= link_to '+ Add Purchase', new_line_item_path %>
-	</p>
 </section>
