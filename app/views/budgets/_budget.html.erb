@@ -1,0 +1,49 @@
+<section>
+	<strong>Total Spent:</strong>
+	<%= number_to_currency @budget.total %>
+</section>
+
+<section>
+	<strong>Members:</strong>
+	<table>
+		<thead>
+			<tr>
+				<th>Member</th>
+				<th>Allocation</th>
+				<th>Total Spent</th>
+				<th>Balance</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @budget.memberships.each do |membership| %>
+			<tr>
+				<td><%= membership.member.name %></td>
+				<td><%= membership.allocation %></td>
+				<td><%= number_to_currency @budget.total_by(membership.member) %></td>
+				<td><%= number_to_currency @budget.balance_by(membership.member) %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</section>
+
+<section>
+	<strong>Purchases:</strong>
+	<% if @budget.line_items.any? %>
+	<table>
+		<tbody>
+		<% @budget.line_items.each do |line_item| %>
+			<tr>
+				<td><%= link_to line_item.description, line_item %></td>
+				<td><%= line_item.purchaser_name %></td>
+				<td><%= number_to_currency line_item.amount %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+	<% end %>
+
+	<p>
+		<%= link_to '+ Add Purchase', new_line_item_path %>
+	</p>
+</section>
