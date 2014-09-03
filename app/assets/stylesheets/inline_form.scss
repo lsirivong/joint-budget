@@ -1,8 +1,17 @@
 .inline-form {
+	background: #f3f3f3;
+	padding: 1em;
 	overflow: hidden;
 
 	.field {
 		float: left;
+		& + .field {
+			margin-left: 0.4em;
+		}
+	}
+
+	.description-field {
+		width: 15em;
 	}
 
 	.amount-field {

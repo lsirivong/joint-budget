@@ -23,6 +23,7 @@ section {
 }
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 td, th {
     border: 1px solid #aaa;
@@ -48,6 +49,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+.monetary-value {
+  text-align: right;
 }
 
 #notice {

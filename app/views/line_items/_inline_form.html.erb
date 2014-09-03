@@ -1,4 +1,4 @@
-<%= form_for @line_item, :url => line_items_path, :html => { class: 'inline-form' } do |f| %>
+<%= form_for @line_item, :url => line_items_path do |f| %>
   <% if @line_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :description, :placeholder => 'Groceries, Phone Bill, Etc.' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :amount, :placeholder => '$ 0.00', :class => 'amount-field' %>
-  </div>
-  <div class="field">
     <%= f.date_select :purchased_at %>
+  </div>
+  <div class="field">
+    <%= f.text_field :description, :placeholder => 'Groceries, Phone Bill, Etc.', :class => 'description-field' %>
+  </div>
+  <div class="field">
+    <%= f.text_field :amount, :placeholder => '$ 0.00', :class => 'amount-field monetary-value' %>
   </div>
   <div class="field">
     <%= f.select :member_id, options_for_select(get_member_select_options, [ current_member.id ]) %>
