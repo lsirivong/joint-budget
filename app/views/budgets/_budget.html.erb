@@ -32,8 +32,9 @@
 	<% if @budget.line_items.any? %>
 	<table>
 		<tbody>
-		<% @budget.line_items.each do |line_item| %>
+		<% @budget.line_items.order('purchased_at DESC').each do |line_item| %>
 			<tr>
+				<td><%= line_item.purchased_at.strftime('%D') %></td>
 				<td><%= link_to line_item.description, line_item %></td>
 				<td><%= line_item.purchaser_name %></td>
 				<td><%= number_to_currency line_item.amount %></td>
