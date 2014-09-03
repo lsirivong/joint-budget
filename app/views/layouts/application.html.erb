@@ -10,7 +10,7 @@
 
 <nav>
 	<ul class="nav-menu">
-		<%= nav_item('Joint Budget', { controller: '/home', action: 'index'}) %>
+		<%= nav_item('Home', { controller: '/home', action: 'index'}) %>
 
 		<% if member_signed_in? %>
 			<%= nav_item('Line Items', { controller: '/line_items', action: 'index'}) %>
