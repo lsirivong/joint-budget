@@ -1,6 +1,6 @@
 module LineItemsHelper
 	def get_member_select_options(selected = nil)
-		Member.all.where('"admin" =?', false).load
+		Member.all.where(admin: false).load
 	end
 
 	def get_budget_select_options
