@@ -12,7 +12,7 @@
 	<ul class="nav-menu">
 		<%= nav_item('Home', { controller: '/home', action: 'index'}) %>
 
-		<% if current_member.admin? %>
+		<% if member_signed_in? and current_member.admin? %>
 			<%= nav_item('Line Items', { controller: '/line_items', action: 'index'}) %>
 			<%= nav_item('Budgets', { controller: '/budgets', action: 'index'}) %>
 			<%= nav_item('Memberships', { controller: '/memberships', action: 'index'}) %>

@@ -1,6 +1,6 @@
 module LineItemsHelper
 	def get_member_select_options(selected = nil)
-		members = Member.all
+		members = Member.all.where('"admin" =?', false)
 		members.map { |m| [m.name, m.id] }
 	end
 
