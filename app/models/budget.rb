@@ -14,8 +14,8 @@ class Budget < ActiveRecord::Base
 	end
 
 	def total_by(member)
-		total = 0;
-		line_items_by_member = line_items.find_all_by_member_id(member.id)
+		total = 0
+		line_items_by_member = line_items.where(member_id: member.id).to_a
 		line_items_by_member.each do |line_item|
 			total += line_item.amount
 		end

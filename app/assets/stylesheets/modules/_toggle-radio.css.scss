@@ -1,0 +1,65 @@
+$tr-background: #eee;
+$tr-color: #666;
+$tr-hover-background: #ccc;
+$tr-hover-color: #222;
+$tr-checked-background: #5dd0fd;
+$tr-checked-color: $tr-hover-color;
+
+@mixin toggle-radio-default {
+  display: inline-block;
+
+  margin-right: 0.2em;
+  border-radius: 1em;
+  padding: 0.2em 0.6em;
+
+  background: $tr-background;
+  color: $tr-color;
+
+  line-height: 1.2;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  transition: background-color 200ms ease, color 200ms ease-out; 
+ 
+  cursor: pointer;
+}
+@mixin toggle-radio-hover {
+  background: $tr-hover-background;
+  color: $tr-hover-color;
+}
+@mixin toggle-radio-checked {
+  background: $tr-checked-background;
+  color: $tr-checked-color;
+}
+@mixin toggle-radio-checked-hover {
+  /* background: #0ff; */
+}
+
+@mixin toggle-radio {
+  display: none;
+  & + label {
+    @include toggle-radio-default;
+
+    // hover state
+    &:hover {
+      @include toggle-radio-hover;
+    }
+  }
+
+  &:focus + label {
+    @include toggle-radio-hover;
+  }
+
+  // checked state
+  &:checked + label {
+    @include toggle-radio-checked;
+
+    // checked hover state
+    &:hover {
+      @include toggle-radio-checked-hover;
+    }
+  }
+}
+

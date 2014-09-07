@@ -1,0 +1,7 @@
+<tr>
+  <td><%= line_item.purchased_at.strftime('%b %e') %></td>
+  <td><%= link_to line_item.description, edit_line_item_path(line_item) %></td>
+  <td class="monetary-value"><%= number_to_currency line_item.amount %></td>
+  <td><%= line_item.budget.name %></td>
+  <td><%= line_item.purchaser_name %></td>
+</tr>

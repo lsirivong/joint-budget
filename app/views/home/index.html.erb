@@ -1,1 +1,25 @@
-<%= render @budgets %>
+<section>
+	<% if @balance < 0 %>
+		[Someone] owes you <strong><%= number_to_currency @balance.abs %></strong>
+	<% elsif 0 < @balance %>
+		You owe [someone] <strong><%= number_to_currency @balance %></strong>
+	<% else %>
+		You're all squared up!
+	<% end %>
+</section>
+
+<section class="inline-form">
+	<h3>Add A Purchase</h3>
+	<%= render partial: 'line_items/inline_form', locals: { line_item: @line_item } %>
+</section>
+
+<section>
+
+	<% if @line_items.any? %>
+	<table>
+		<tbody>
+			<%= render @line_items %>
+		</tbody>
+	</table>
+	<% end %>
+</section>

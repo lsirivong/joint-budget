@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :member %><br>
-    <%= f.select :member_id, options_for_select(get_member_select_options, [ current_member.id ]) %>
+    <%= f.select :member_id, options_for_select(get_member_select_options, [ @line_item.member_id || current_member.id ]) %>
   </div>
   <div class="field">
     <%= f.label :budget %><br>
-    <%= f.select :budget_id, get_budget_select_options %>
+    <%= f.select :budget_id, options_for_select(get_budget_select_options, [ @line_item.budget_id || nil]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

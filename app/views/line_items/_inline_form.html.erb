@@ -1,10 +1,10 @@
-<%= form_for @line_item, :url => line_items_path do |f| %>
-  <% if @line_item.errors.any? %>
+<%= form_for line_item, :url => line_items_path do |f| %>
+  <% if line_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
+      <h2><%= pluralize(line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
 
       <ul>
-      <% @line_item.errors.full_messages.each do |msg| %>
+      <% line_item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -20,8 +20,11 @@
   <div class="field">
     <%= f.text_field :amount, :placeholder => '$ 0.00', :class => 'amount-field monetary-value' %>
   </div>
-  <div class="field">
-    <%= f.select :member_id, options_for_select(get_member_select_options, [ current_member.id ]) %>
+  <div class="field toggle-radio-group">
+    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :name %>
+  </div>
+  <div class="field toggle-radio-group">
+    <%= f.collection_radio_buttons :budget_id, get_budget_select_options, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,6 +1,4 @@
 .inline-form {
-	background: #f3f3f3;
-	padding: 1em;
 	overflow: hidden;
 
 	.field {
@@ -15,11 +13,15 @@
 	}
 
 	.amount-field {
-		width: 6em;
+		width: 4.4em;
 	}
 
 	.actions {
 		clear: both;
 		float: right;
+	}
+
+	.toggle-radio-group [type="radio"] {
+		@include toggle-radio;
 	}
 }
