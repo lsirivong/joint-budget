@@ -1,8 +1,8 @@
-$tr-background: #eee;
-$tr-color: #666;
-$tr-hover-background: #ccc;
-$tr-hover-color: #222;
-$tr-checked-background: #5dd0fd;
+$tr-background: #ddd;
+$tr-color: #fafafa;
+$tr-hover-background: #bebebe;
+$tr-hover-color: $tr-color;
+$tr-checked-background: #222;
 $tr-checked-color: $tr-hover-color;
 
 @mixin toggle-radio-default {
@@ -11,6 +11,7 @@ $tr-checked-color: $tr-hover-color;
   margin-right: 0.2em;
   border-radius: 1em;
   padding: 0.2em 0.6em;
+  width: 0.6em;
 
   background: $tr-background;
   color: $tr-color;
@@ -22,7 +23,7 @@ $tr-checked-color: $tr-hover-color;
     margin-right: 0;
   }
 
-  transition: background-color 200ms ease, color 200ms ease-out; 
+  transition: background-color 200ms ease, color 200ms ease-out;
  
   cursor: pointer;
 }

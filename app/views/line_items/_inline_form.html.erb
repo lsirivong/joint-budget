@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.date_select :purchased_at %>
+    <%= f.text_field :purchased_at, :class => 'datepicker' %>
   </div>
   <div class="field">
     <%= f.text_field :description, :placeholder => 'Groceries, Phone Bill, Etc.', :class => 'description-field' %>
@@ -21,18 +21,18 @@
     <%= f.text_field :amount, :placeholder => '$ 0.00', :class => 'amount-field monetary-value' %>
   </div>
   <div class="field toggle-radio-group">
-    By:
-    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :first_initial do |b| 
-      b.radio_button + b.label(title: b.object.name)
-    end %>
-  </div>
-  <div class="field toggle-radio-group">
     Budget:
     <%= f.collection_radio_buttons :budget_id, get_budget_select_options, :id, :first_initial do |b| 
       b.radio_button + b.label(title: b.object.name)
     end %>
   </div>
-  <div class="actions">
+  <div class="field toggle-radio-group">
+    By:
+    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :first_initial do |b| 
+      b.radio_button + b.label(title: b.object.name)
+    end %>
+  </div>
+  <div class="field">
     <%= f.submit "Add" %>
   </div>
 <% end %>

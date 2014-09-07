@@ -8,6 +8,21 @@
 		}
 	}
 
+	input[type="text"] {
+		border: 1px solid #efefef;
+		background: #efefef;
+		padding: 0.25em 0.2em;
+		line-height: 1.2;
+		margin: 0;
+		outline: 0;
+		transition: background-color 200ms ease;
+
+		&:focus {
+			background: #fafafa;
+			border-color: #6ec8cf;
+		}
+	}
+
 	.description-field {
 		width: 15em;
 	}
@@ -19,6 +34,23 @@
 	.actions {
 		clear: both;
 		float: right;
+	}
+
+	input[type="submit"] {
+		background: #5DE668;
+		padding: 0.3em 0.6em;
+		color: #FFF;
+		cursor: pointer;
+		display: inline-block;
+		margin: 0;
+		border: 1px solid #5DE668;
+		transition: background-color 200ms ease;
+		&:hover,
+		&:focus {
+			background: #30A83A;
+			outline: 0;
+			border-color: #6ec8cf;
+		}
 	}
 
 	.toggle-radio-group [type="radio"] {
