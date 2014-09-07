@@ -4,6 +4,10 @@ class Budget < ActiveRecord::Base
 	accepts_nested_attributes_for :memberships
 	has_many :members, through: :memberships
 
+	def first_initial
+		name[0]
+	end
+
 	def total
 		total = 0
 		line_items.each do |line_item|

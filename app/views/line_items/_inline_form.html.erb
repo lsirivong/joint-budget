@@ -21,12 +21,18 @@
     <%= f.text_field :amount, :placeholder => '$ 0.00', :class => 'amount-field monetary-value' %>
   </div>
   <div class="field toggle-radio-group">
-    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :name %>
+    By:
+    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :first_initial do |b| 
+      b.radio_button + b.label(title: b.object.name)
+    end %>
   </div>
   <div class="field toggle-radio-group">
-    <%= f.collection_radio_buttons :budget_id, get_budget_select_options, :id, :name %>
+    Budget:
+    <%= f.collection_radio_buttons :budget_id, get_budget_select_options, :id, :first_initial do |b| 
+      b.radio_button + b.label(title: b.object.name)
+    end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add" %>
   </div>
 <% end %>

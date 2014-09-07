@@ -7,6 +7,10 @@ class Member < ActiveRecord::Base
 	has_many :memberships
 	has_many :budgets, through: :memberships
 
+	def first_initial
+		name[0]
+	end
+
 	def latest_budget
 		budgets.order('created_at DESC').first
 	end
