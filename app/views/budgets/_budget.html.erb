@@ -1,10 +1,14 @@
 <section>
-	<h2>Total Spent:</h2>
-	<%= number_to_currency @budget.total %>
+	<h2><%= budget.name %></h2>
 </section>
 
 <section>
-	<h2>Members:</h2>
+	<h3>Total Spent:</h3>
+	<%= number_to_currency budget.total %>
+</section>
+
+<section>
+	<h3>Members:</h3>
 	<table>
 		<thead>
 			<tr>
@@ -15,12 +19,12 @@
 			</tr>
 		</thead>
 		<tbody>
-		<% @budget.memberships.each do |membership| %>
+		<% budget.memberships.each do |membership| %>
 			<tr>
 				<td><%= membership.member.name %></td>
 				<td><%= membership.allocation %></td>
-				<td class="monetary-value"><%= number_to_currency @budget.total_by(membership.member) %></td>
-				<td class="monetary-value"><%= number_to_currency @budget.balance_by(membership.member) %></td>
+				<td class="monetary-value"><%= number_to_currency budget.total_by(membership.member) %></td>
+				<td class="monetary-value"><%= number_to_currency budget.balance_by(membership.member) %></td>
 			</tr>
 		<% end %>
 		</tbody>
@@ -28,17 +32,17 @@
 </section>
 
 <section>
-	<h2>Purchases:</h2>
+	<h3>Purchases:</h3>
 
 	<section class="inline-form">
 		<h3>Add A Purchase</h3>
 		<%= render partial: 'line_items/inline_form', object: @line_item %>
 	</section>
 
-	<% if @budget.line_items.any? %>
+	<% if budget.line_items.any? %>
 	<table>
 		<tbody>
-		<% @budget.line_items.order('purchased_at DESC').each do |line_item| %>
+		<% budget.line_items.order('purchased_at DESC').each do |line_item| %>
 			<tr>
 				<td><%= line_item.purchased_at.strftime('%D') %></td>
 				<td><%= link_to line_item.description, edit_line_item_path(line_item) %></td>

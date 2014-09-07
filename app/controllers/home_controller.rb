@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	def index
 		if member_signed_in?
-			@budget = current_member.latest_budget
+			@budgets = current_member.budgets
 			@line_item = LineItem.new;
 		else
 			redirect_to new_member_session_path
