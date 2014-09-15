@@ -22,13 +22,13 @@
   </div>
   <div class="field toggle-radio-group">
     Budget:
-    <%= f.collection_radio_buttons :budget_id, get_budget_select_options, :id, :first_initial do |b| 
+    <%= f.collection_radio_buttons :budget_id, get_budget_radio_options, :id, :first_initial do |b| 
       b.radio_button + b.label(title: b.object.name)
     end %>
   </div>
   <div class="field toggle-radio-group">
     By:
-    <%= f.collection_radio_buttons :member_id, get_member_select_options, :id, :first_initial do |b| 
+    <%= f.collection_radio_buttons :member_id, get_member_radio_options, :id, :first_initial do |b| 
       b.radio_button + b.label(title: b.object.name)
     end %>
   </div>

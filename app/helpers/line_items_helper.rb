@@ -1,10 +1,20 @@
 module LineItemsHelper
-	def get_member_select_options(selected = nil)
+	def get_member_radio_options(selected = nil)
 		Member.all.where(admin: false).load
 	end
 
-	def get_budget_select_options
+	def get_budget_radio_options
 		current_member.budgets.load
+	end
+
+	def get_member_select_options(selected = nil)
+		members = Member.all.where(admin: false).load
+		members.map { |m| [m.name, m.id] }
+	end
+
+	def get_budget_select_options
+		budgets = current_member.budgets.load
+		budgets.map { |m| [m.name, m.id] }
 	end
 
 	def get_purchaser_name(line_item)
