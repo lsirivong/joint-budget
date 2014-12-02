@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903202600) do
+ActiveRecord::Schema.define(version: 20140920232605) do
 
   create_table "budgets", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "display_order"
   end
 
   create_table "line_items", force: true do |t|

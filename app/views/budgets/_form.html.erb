@@ -21,6 +21,11 @@
     <%= f.collection_check_boxes :member_ids, Member.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= f.label :display_order %><br>
+    <%= f.text_field :display_order %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

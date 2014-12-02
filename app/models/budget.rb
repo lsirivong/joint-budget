@@ -30,14 +30,16 @@ class Budget < ActiveRecord::Base
 	def balance_by(member)
 		t = total
 
-		# divide evenly for now
-		# num_members = members.count
-		# percent = 1.0 / num_members
+		membership = Membership.find_by member_id: member.id, budget_id: id
 
-		# binding.pry
-		membership = Membership.where(:member_id => member.id, :budget_id => id).take
-		percent = membership.allocation
+		balance = 0
 
-		(t * percent) - total_by(member)
+		if membership
+			percent = membership.allocation
+
+			balance = (t * percent) - total_by(member)
+		end
+
+		balance
 	end
 end

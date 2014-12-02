@@ -4,7 +4,7 @@ module LineItemsHelper
 	end
 
 	def get_budget_radio_options
-		current_member.budgets.load
+		current_member.budgets.order(display_order: :asc).load
 	end
 
 	def get_member_select_options(selected = nil)
@@ -13,7 +13,7 @@ module LineItemsHelper
 	end
 
 	def get_budget_select_options
-		budgets = current_member.budgets.load
+		budgets = current_member.budgets.order(display_order: :asc).load
 		budgets.map { |m| [m.name, m.id] }
 	end
 
