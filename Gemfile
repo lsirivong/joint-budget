@@ -39,7 +39,11 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+group :development do
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-bundler', '~> 1.1.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -48,14 +52,14 @@ gem 'capistrano', group: :development
 gem 'devise'
 
 group :development, :test do
-	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 
-	# Use Pry for debugging
-	gem 'pry'
+  # Use Pry for debugging
+  gem 'pry'
 end
 
 group :production do
-	# Use MySql as the database
-	gem 'mysql2'
+  # Use MySql as the database
+  gem 'mysql2'
 end
