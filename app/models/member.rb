@@ -11,7 +11,7 @@ class Member < ActiveRecord::Base
 		name[0]
 	end
 
-	def latest_budget
-		budgets.order('created_at DESC').first
+	def default_budget
+		budgets.any? ? budgets.first : nil
 	end
 end
