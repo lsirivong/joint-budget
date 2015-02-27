@@ -7,6 +7,15 @@ class Member < ActiveRecord::Base
 	has_many :memberships
 	has_many :budgets, through: :memberships
 
+	def total_balance
+		balance = 0
+		budgets.each do |budget|
+			balance += budget.balance_by self
+		end
+
+		balance
+	end
+
 	def first_initial
 		name[0]
 	end
