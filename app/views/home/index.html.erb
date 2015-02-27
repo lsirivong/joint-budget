@@ -20,5 +20,7 @@
 			<%= render @line_items %>
 		</tbody>
 	</table>
+	<%= link_to_previous_page @line_items, 'Prev Page' %>
+	<%= link_to_next_page @line_items, 'Next Page' %>
 	<% end %>
 </section>
