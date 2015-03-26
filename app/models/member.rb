@@ -16,6 +16,19 @@ class Member < ActiveRecord::Base
 		balance
 	end
 
+	def balances
+		temp = {}
+
+		budgets.each do |budget|
+			balances = budget.balances
+			balances.each do |name, amount|
+				temp[name] = (temp[name] || 0) + amount
+			end
+		end
+
+		temp
+	end
+
 	def first_initial
 		name[0]
 	end

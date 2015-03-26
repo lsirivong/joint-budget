@@ -19,8 +19,7 @@ class Budget < ActiveRecord::Base
 
 	def total_by(member)
 		total = 0
-		line_items_by_member = line_items.where(member_id: member.id).to_a
-		line_items_by_member.each do |line_item|
+		line_items.purchased_by(member).each do |line_item|
 			total += line_item.amount
 		end
 
@@ -41,5 +40,12 @@ class Budget < ActiveRecord::Base
 		end
 
 		balance
+	end
+
+	def balances
+		vals = members.map do |member|
+			[member.name, balance_by(member)]
+		end
+		Hash[vals]
 	end
 end

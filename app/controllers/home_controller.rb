@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	def index
 		unless member_signed_in?
-			redirect_to new_member_session_path
+			return redirect_to new_member_session_path
 		end
 
 		@balance = current_member.total_balance

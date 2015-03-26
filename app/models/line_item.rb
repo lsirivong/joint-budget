@@ -5,6 +5,7 @@ class LineItem < ActiveRecord::Base
 	validates :amount, presence: true
 
 	default_scope { order('purchased_at DESC') }
+	scope :purchased_by, ->(member) { where member: member }
 
 	def purchaser_name
 		unless member.nil?

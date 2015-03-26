@@ -1,10 +1,8 @@
 <section>
-	<% if @balance < 0 %>
-		[Someone] owes you <strong><%= number_to_currency @balance.abs %></strong>
-	<% elsif 0 < @balance %>
-		You owe [someone] <strong><%= number_to_currency @balance %></strong>
-	<% else %>
+	<% if @balance == 0 %>
 		You're all squared up!
+	<% else %>
+		You <% if 0 < @balance %> owe <% else %> are owed <% end %> <strong><%= number_to_currency @balance.abs %></strong>
 	<% end %>
 </section>
 
