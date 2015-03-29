@@ -60,6 +60,16 @@ group :development, :test do
 
   # Use Pry for debugging
   gem 'pry'
+
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
+
+group :test do
+  gem 'fabrication'
+  gem 'faker'
 end
 
 group :production do
