@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Budget, :type => :model do
   context "without a name" do
-    # budget = Fabricate(:budget, name: nil)
     budget = Fabricate.build :budget_without_a_name
 
     it "requires a name" do
@@ -19,16 +18,11 @@ RSpec.describe Budget, :type => :model do
 
   context "with line items" do
     before {
-      @budget = Fabricate.build(:budget) do
-        line_items [
-          Fabricate.build(:line_item, amount: 1.30),
-          Fabricate.build(:line_item, amount: 2.41)
-        ]
-      end
+      @budget = Fabricate.build :budget_with_line_items
     }
 
     it "sums the amount of its line items" do
-      expect(@budget.total).to eq(3.71)
+      expect(@budget.total).to eq(2.22)
     end
 
   end
