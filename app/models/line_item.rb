@@ -7,11 +7,11 @@ class LineItem < ActiveRecord::Base
 	default_scope { order('purchased_at DESC') }
 	scope :purchased_by, ->(member) { where member: member }
 
+	def member
+		super || NullMember.new
+	end
+
 	def purchaser_name
-		unless member.nil?
-			member.name
-		else
-			''
-		end
+		member.name
 	end
 end
