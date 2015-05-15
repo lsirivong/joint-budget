@@ -14,5 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/bin
+
+.ruby-version
+*.sublime-project
+*.sublime-workspace
 
 config/database.yml
